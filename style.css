@@ -35,7 +35,6 @@ h1{
    outline: none;
    border-top-left-radius: 5px;
    border-bottom-left-radius: 5px;
-
 }
 
 #search-btn{
@@ -49,6 +48,12 @@ h1{
     font-weight: 600;
     background-color: chocolate;
     margin-left: -4px;
+    cursor: pointer;
+}
+
+#search-btn:active{
+    background-color: black;
+    color: white;
 }
 
 .search-result{

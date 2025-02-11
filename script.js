@@ -27,15 +27,29 @@ async function searchImages() {
         const image = document.createElement('img');
         image.classList.add('set-images');
         image.src = imageResult.urls.small;
-        const imageLink = document.createElement("a");
-        imageLink.href = imageResult.links.html;
-        imageLink.target = '_blank';
+        const imageLink = document.createElement("a");  // it's work as a button 
+
+        imageLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            const a = document.createElement("a");
+            a.href = imageResult.urls.full;
+            a.download = "Ravin-image.jpg"; // Downloaded file ka naam
+            document.body.appendChild(a);
+            a.target = "_blank";
+            a.click();
+            document.body.removeChild(a);
+        });
 
         imageLink.appendChild(image);
         searchResult.appendChild(imageLink);
     })
 
-    showMoreBtn.style.display = "block";
+    if(imageResults == false){
+        alert("Please Check Spelling Of Text");
+    }else{
+        showMoreBtn.style.display = "block";
+    }
+    
 }
 
 searchBtn.addEventListener("click", (e)=> {
